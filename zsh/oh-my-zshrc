@@ -1,0 +1,99 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="alanpeabodycustom"
+
+# Profiling
+if (( ${+ZSH_PROF} )); then
+  zmodload zsh/zprof
+fi
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias la='ls -a'
+alias gt='gnome-terminal'
+alias cake='cake compile'
+alias naturalscroll='xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 2 3 5 4 7 6 8 9 10 11 12'
+alias normalscroll='xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 2 3 4 5 6 7 8 9 10 11 12'
+alias goapp=~/fun/google-cloud-sdk/platform/google_appengine/goapp
+alias btmouse='bluez-test-input connect 00:1F:20:02:0C:3F'
+alias xclippng='xclip -selection clipboard -t image/png'
+alias fiddlesticks='fuck'
+#alias webpack='PATH=$(npm bin):$PATH webpack'
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git rvm screen nvm grunt ruby rake)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/opt/node/bin:/home/ram/bin
+
+export PATH=$PATH:$HOME/fun/android-sdk-linux/platform-tools
+export PATH=$PATH:$HOME/fun/android-sdk-linux/tools
+export PATH=$PATH:$HOME/fun/google-cloud-sdk/bin
+export PATH=$PATH:$HOME/fun/go/bin
+
+school=/home/ram/school/sp13
+STAFREPOS=svn+ssh://164-repo/staff
+TEAMREPOS=svn+ssh://164-repo/RAD
+MYREPOS=svn+ssh://164-repo/cs164-dw
+export SVN_EDITOR=vim
+export EDITOR=vim
+export CDO_CHEF_NODE_NAME="ramkand"
+export CDO_CHEF_ORG_NAME="code-dot-org"
+export NO_AT_BRIDGE=1
+
+export GOPATH=$HOME/fun/go
+
+say() {
+  if [[ "${1}" =~ -[a-z]{2} ]]; then
+    local lang=${1#-};
+    local text="${*#$1}";
+  else
+    local lang=${LANG%_*};
+    local text="$*";
+  fi;
+  mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null ;
+}
+
+unsetopt correctall
+
+export NVM_DIR="/home/ram/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+eval $(thefuck --alias)
+
+export MERGE_RUN_PROMPT=1
+
+# Enables an "init command", e.g. `zsh -is eval 'echo hi'`
+if [[ $1 == eval ]]
+then
+  "$@"
+  set --
+fi
