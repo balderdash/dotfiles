@@ -1,4 +1,25 @@
+" Add more files to ~/.vim/after/ftplugin/ to change indentation for other
+" languages
+filetype plugin indent on
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set confirm
+set number
+set hidden
+set backupdir=/home/ram/.vim/backup
+set backupcopy=yes
+set directory=/home/ram/.vim/swp
+set wildmenu
+set ignorecase
+set smartcase
+set history=10000
+execute pathogen#infect()
 syntax on
-
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+autocmd FileType c,cpp,java,php,ruby,javascript,css,html,haml,xml autocmd BufWritePre <buffer> :%s/\s\+$//e
+nnoremap Y y$
+let mapleader=","
+let g:vimrubocop_config = '~/codeorg/code-dot-org/.rubocop.yml'
+let @f = '^d2f.whdt($%Akb'
+"highlight OverLength ctermbg=darkred
+"match OverLength /\%>90v.\+/
