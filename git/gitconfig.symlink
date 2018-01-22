@@ -15,6 +15,7 @@
 	praise = blame
 	ls = branch --list --sort committerdate \"[a-z]*\"
 	puush = push -u origin HEAD
+	staged = diff --staged
 [diff]
 	indentHeuristic = on
 [core]
