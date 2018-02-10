@@ -9,7 +9,7 @@ set number
 set hidden
 set backupdir=/home/ram/.vim/backup
 set backupcopy=yes
-set directory=/home/ram/.vim/swp
+set directory=/home/ram/.vim/swp//
 set wildmenu
 set wildmode=longest,full
 set ignorecase
