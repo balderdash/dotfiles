@@ -37,7 +37,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm screen nvm grunt ruby rake)
+plugins=(git rvm screen zsh-nvm grunt ruby rake)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,8 +50,6 @@ export NO_AT_BRIDGE=1
 
 unsetopt correctall
 
-export NVM_DIR="/home/ram/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 alias loadnvm=". /home/ram/.nvm/nvm.sh"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
